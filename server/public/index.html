@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="vendors/angular.min.js"></script>
+    <script src="vendors/angular-route.min.js"></script>
+    <script src="scripts/client.js"></script>
+    <script src="scripts/services/hotel.services.js"></script>
+    <script src="scripts/controllers/dashboard.controller.js"></script>
+    <script src="scripts/controllers/manage.controller.js"></script>
     <title>Pet Hotel</title>
 </head>
-<body>
+
+<header>
     <h1>Pet Hotel</h1>
+</header>
+
+<body ng-app="PetHotelApp">
+
+    <nav>
+        <a ng-href="#!/dashboard">Dashboard</a>
+        <a ng-href="#!/manage">Manage Owners</a>
+    </nav>
+
+    <ng-view></ng-view>
+
 </body>
+
 </html>
