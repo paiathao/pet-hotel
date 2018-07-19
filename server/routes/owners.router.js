@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
 })
 
 router.get('/', (req, res) => {
-    console.log('Got to GET');
+    console.log('Got to GET owner router');
     pool.query(`SELECT * FROM "owners";`)
         .then((result)=> {
             res.send(result.rows);

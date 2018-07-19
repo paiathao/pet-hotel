@@ -7,6 +7,8 @@ app.controller('DashboardController', ['HotelService', function (HotelService) {
 
     self.getAllOwners = HotelService.getAllOwners;
 
+    self.getAllPets = HotelService.getAllPets;
+
     
   
   }]);
