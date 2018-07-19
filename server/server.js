@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const petsRouter = require('./routes/pets.router.js');
+const ownersRouter = require('./routes/owners.router.js');
 
 const PORT = process.env.PORT || 5000;
 
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 
 //Routes
 app.use('/pets', petsRouter);
+app.use('/owners', ownersRouter);
 
 
 //Listen

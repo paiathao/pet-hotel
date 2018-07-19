@@ -11,4 +11,8 @@
         <option ng-repeat="owner in vm.owners.list" value="{{owner.id}}">{{owner.name}}</option>
     </select>
     <button>Submit</button>
+
+    <div ng-repeat="pet in vm.pets.list">
+        {{pet}}
+    </div>
 </div>

@@ -4,10 +4,13 @@ app.service('HotelService', ['$http', function ($http) {
 
     let self = this;
 
+    self.pets = { list: []};
+    self.owners = { list: []};
+
     self.addOwner = function (newOwner) {
        console.log('adding new owner', newOwner);
        $http({
-           url: '/pets',
+           url: '/owners',
            method: 'POST',
            data: {name : newOwner}
        })
@@ -19,5 +22,21 @@ app.service('HotelService', ['$http', function ($http) {
        })
     }
 
+    self.getAllOwners = function () {
+        $http({
+            url: '/owners',
+            method: 'GET',
+        })
+        .then(function(response){
+            console.log('Get All Owners', response.data)
+            self.owners.list = response.data;
+        })
+        .catch (function(err){
+            console.log(err)
+        })
+     }
+
+
+     self.getAllOwners();
     
 }])
