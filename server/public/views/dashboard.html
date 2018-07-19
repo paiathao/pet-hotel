@@ -1,3 +1,14 @@
 <div>
-    Dashboard
+    <h2>Add Pet</h2>
+
+    <input type="text" placeholder="name">
+    <input type="text" placeholder="breed">
+    <input type="text" placeholder="color">
+    <select ng-model="vm.ownerToAdd">
+        <!-- not selected / blank option -->
+        <option value="">Owner Name</option>
+        <!-- repeat over ships -->
+        <option ng-repeat="owner in vm.owners.list" value="{{owner.id}}">{{owner.name}}</option>
+    </select>
+    <button>Submit</button>
 </div>
