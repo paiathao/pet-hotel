@@ -3,4 +3,25 @@
 
     <input type="text" placeholder="Owner Name" ng-model="vm.newOwner">
     <button ng-click="vm.addOwner(vm.newOwner)">Submit</button>
+
+    <div>
+        <h2>Owners</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Number of Pets</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="owner in vm.owners.list">
+                    <td>{{owner.name}}</td>
+                    <td>{{owner.number_of_pets}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
 </div>

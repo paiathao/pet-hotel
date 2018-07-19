@@ -21,7 +21,9 @@ router.post('/', (req, res) => {
 
 router.get('/', (req, res) => {
     console.log('Got to GET owner router');
-    pool.query(`SELECT * FROM "owners";`)
+    pool.query(`SELECT "owners"."id", "owners"."name", COUNT (*) AS "number_of_pets"
+                FROM "owners" LEFT OUTER JOIN "pets" ON "owners"."id" = "pets"."owner_id"
+                GROUP BY "owners"."id", owners.name;`)
         .then((result)=> {
             res.send(result.rows);
         }).catch((error) => {
