@@ -36,6 +36,23 @@ app.service('HotelService', ['$http', function ($http) {
         })
      }
 
+     self.addPet = function (newPet) {
+        console.log('Adding new pet', newPet);
+        $http({
+            url: '/pets',
+            method: 'POST',
+            data: newPet
+        })
+        .then(function(response){
+            console.log('add pet', response)
+            self.getAllPets();
+            self.getAllOwners();
+        })
+        .catch (function(err){
+            console.log(err)
+        })
+     }
+
      self.getAllPets = function () {
         $http({
             url: '/pets',

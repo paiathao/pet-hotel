@@ -9,6 +9,8 @@ app.controller('DashboardController', ['HotelService', function (HotelService) {
 
     self.getAllPets = HotelService.getAllPets;
 
-    
+    self.addPet = function (newPet) {
+      HotelService.addPet(newPet);
+    }
   
   }]);
