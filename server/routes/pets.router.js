@@ -37,4 +37,19 @@ router.post('/', (req, res) => {
         })
 })
 
+router.put('/:id', (req, res) => {
+    console.log('in pet router PUT')
+    console.log('req.body', req.body);
+    // pool.query(`UPDATE "pets" SET "name" = $1, "breed" = $2, "color" = $3, "owner_id" = $4, "check_in" = $5
+    //             WHERE "id" = $6;`, [req.body.pet_name, req.body.pet_breed, req.body.pet_color, req.body.owner_id, req.body.check_in, req.params.id]) 
+    //     .then((results) => {
+    //         console.log(results);
+    //         res.sendStatus(201);
+    //     })
+    //     .catch((errorFromPG) => {
+    //         console.log(errorFromPG)
+    //         res.sendStatus(500);
+    //     })
+})
+
 module.exports = router;

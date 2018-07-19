@@ -6,6 +6,7 @@ app.service('HotelService', ['$http', function ($http) {
 
     self.pets = { list: []};
     self.owners = { list: []};
+    self.checkIn = true;
 
     self.addOwner = function (newOwner) {
        console.log('adding new owner', newOwner);
@@ -81,6 +82,27 @@ app.service('HotelService', ['$http', function ($http) {
             console.log(err)
         })
      }
+
+     self.updatePet = function (pet) {
+        console.log('Update pet', pet)
+        
+        if(pet.check_in === false) {
+            pet.check_in = true;
+        } else if (pet.check_in === true) {
+            pet.check_in = false;
+        }; 
+
+        $http({
+            url: `/pets/${pet._id}`,
+            method: 'PUT',
+            data: pet
+        }).then(function (res) {
+            console.log(res);
+            self.getAllPets();
+        }).catch(function (err) {
+            console.log(err);
+        })
+    }
 
      self.getAllPets();
 

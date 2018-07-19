@@ -31,7 +31,12 @@
                     <td>{{pet.pet_breed}}</td>
                     <td>{{pet.pet_color}}</td>
                     <td>{{pet.check_in}}</td>
-                </tr>
+                    <td>
+                        <button>Delete</button>
+                        <button ng-show="pet.check_in" ng-click="vm.updatePet(pet)">Check-Out</button>
+                        <button ng-show="!pet.check_in" ng-click="vm.updatePet(pet)">Check-In</button>
+                    </td>
+                </tr> 
             </tbody>
         </table>
     </div>
