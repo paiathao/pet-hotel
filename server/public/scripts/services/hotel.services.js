@@ -93,7 +93,7 @@ app.service('HotelService', ['$http', function ($http) {
         }; 
 
         $http({
-            url: `/pets/${pet._id}`,
+            url: `/pets/${pet.pet_id}`,
             method: 'PUT',
             data: pet
         }).then(function (res) {
