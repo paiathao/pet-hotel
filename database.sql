@@ -7,7 +7,8 @@ CREATE TABLE "pets" (
     "name" VARCHAR(50) NOT NULL,
     "breed" VARCHAR(50) NOT NULL,
     "color" VARCHAR(50) NOT NULL,
-    "owner_id" INTEGER REFERENCES owners
+    "owner_id" INTEGER REFERENCES owners,
+    "check_in" boolean DEFAULT TRUE
 );
 
 CREATE TABLE "owners" (
