@@ -10,7 +10,29 @@
     </select>
     <button ng-click="vm.addPet(vm.newPet)">Submit</button>
 
-    <div ng-repeat="pet in vm.pets.list">
-        {{pet}}
+    <div>
+        <h2>History</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Owner</th>
+                    <th>Pet's Name</th>
+                    <th>Breed</th>
+                    <th>Color</th>
+                    <th>Check In</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="pet in vm.pets.list">
+                    <td>{{pet.owner_name}}</td>
+                    <td>{{pet.pet_name}}</td>
+                    <td>{{pet.pet_breed}}</td>
+                    <td>{{pet.pet_color}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+
 </div>

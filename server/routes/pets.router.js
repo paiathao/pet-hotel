@@ -6,7 +6,8 @@ const pool = require('../modules/pool');
 
 router.get('/', (req, res) => {
     console.log('Got to GET pets router');
-    pool.query(`SELECT * FROM "pets";`)
+    pool.query(`SELECT "pets"."id" AS "pet_id", "pets"."name" AS "pet_name", "pets"."breed" AS "pet_breed", "pets"."color" AS "pet_color", "pets"."owner_id" AS "owner_id", "owners"."name" AS "owner_name" 
+                FROM "owners" JOIN "pets" ON "owners".id = "pets".owner_id;`)
         .then((result)=> {
             res.send(result.rows);
         }).catch((error) => {
