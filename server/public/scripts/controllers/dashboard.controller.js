@@ -13,4 +13,6 @@ app.controller('DashboardController', ['HotelService', function (HotelService) {
       HotelService.addPet(newPet);
     }
   
+
+      
   }]);

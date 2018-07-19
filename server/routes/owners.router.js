@@ -20,8 +20,8 @@ router.post('/', (req, res) => {
 })
 
 router.get('/', (req, res) => {
-    console.log('Got to GET owner router');
-    pool.query(`SELECT "owners"."id", "owners"."name", COUNT (*) AS "number_of_pets"
+    console.log('Got to owner router GET');
+    pool.query(`SELECT "owners"."id", "owners"."name", COUNT ("pets"."owner_id") AS "number_of_pets"
                 FROM "owners" LEFT OUTER JOIN "pets" ON "owners"."id" = "pets"."owner_id"
                 GROUP BY "owners"."id", owners.name;`)
         .then((result)=> {
@@ -32,6 +32,17 @@ router.get('/', (req, res) => {
         });
 
 });
+
+router.delete('/:id', (req, res) => {
+    console.log('Got to owner router DELETE id: ', req.params.id)
+    pool.query('DELETE FROM "owners" WHERE "id" = $1;', [req.params.id])
+    .then((result)=> {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('ERROR deleting owners', error);
+        res.sendStatus(500);
+    });
+})
 
 
 

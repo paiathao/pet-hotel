@@ -16,6 +16,7 @@ app.service('HotelService', ['$http', function ($http) {
        })
        .then(function(response){
            console.log('add Owner', response)
+           self.getAllOwners();
        })
        .catch (function(err){
            console.log(err)
@@ -35,6 +36,20 @@ app.service('HotelService', ['$http', function ($http) {
             console.log(err)
         })
      }
+
+     self.deleteOwner = function (ownerId) {
+        console.log('Delete owner with id', ownerId);
+        $http({
+            url: `/owners/${ownerId}`,
+            method: 'DELETE',
+        })
+        .then(function(response){
+            self.getAllOwners();
+        })
+        .catch (function(err){
+            console.log(err)
+        })
+    }
 
      self.addPet = function (newPet) {
         console.log('Adding new pet', newPet);

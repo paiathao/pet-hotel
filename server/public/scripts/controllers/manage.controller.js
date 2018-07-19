@@ -8,4 +8,8 @@ app.controller('ManageController', ['HotelService', function (HotelService) {
     self.addOwner = function (newOwner) {
         HotelService.addOwner(newOwner);
     }      
+
+    self.deleteOwner = function (ownerId) {
+        HotelService.deleteOwner(ownerId)
+    }
 }]);
