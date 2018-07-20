@@ -2,6 +2,9 @@ const app = angular.module('PetHotelApp', ['ngRoute']);
 
 app.config(function ($routeProvider) {
     $routeProvider.when('/', {
+        templateUrl: 'views/home.html',
+        })
+        .when('/dashboard', {
             templateUrl: 'views/dashboard.html',
             controller: 'DashboardController as vm'
         })

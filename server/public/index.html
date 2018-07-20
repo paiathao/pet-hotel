@@ -19,34 +19,25 @@
     <title>Pet Hotel</title>
 </head>
 
-<!-- <header>
-    <h1>Pet Hotel</h1>
-</header> -->
-
 <body ng-app="PetHotelApp">
 
-    <!-- <nav>
-        <a ng-href="#!/dashboard">Dashboard</a>
-        <a ng-href="#!/manage">Manage Owners</a>
-    </nav> -->
+    <nav class="navbar navbar-expand-sm">
+        <a class="navbar-brand" href="#">
+            <img src="./images/1.png" class="logo" />
+        </a>
+
+        <ul class="navbar-nav">
+            <li style="float:right" class="nav-item">
+                <a class="nav-link" ng-href="#!/dashboard">Dashboard</a>
+            </li>
+            <li style="float:right" class="nav-item">
+                <a class="nav-link" ng-href="#!/manage">Manage Owners</a>
+            </li>
+        </ul>
+    </nav>
 
 
 
-                <nav class="navbar navbar-expand-sm">
-                    <a class="navbar-brand" href="#"><img src="./images/1.png" class="logo"/></a>
-        
-                    <ul class="navbar-nav">
-                        <li  style="float:right" class="nav-item">
-                            <a class="nav-link" ng-href="#!/dashboard" >Dashboard</a>
-                        </li>
-                        <li style="float:right" class="nav-item">
-                            <a class="nav-link" ng-href="#!/manage">Manage Owners</a>
-                        </li>
-                    </ul>
-                </nav>
-
-
-        
     <ng-view></ng-view>
 
 </body>
