@@ -97,7 +97,7 @@ app.service('HotelService', ['$http', function ($http) {
         })
      }
 
-     self.updatePet = function (pet) {
+     self.updatePetCheckIn = function (pet) {
         console.log('Update pet', pet)
         
         if(pet.check_in === false) {

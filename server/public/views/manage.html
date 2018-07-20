@@ -1,21 +1,29 @@
-<div>
+<div class="container">
     <h2>Add Owner</h2>
 
-    <input type="text" placeholder="Owner Name" ng-model="vm.newOwner">
-    <button ng-click="vm.addOwner(vm.newOwner)">Submit</button>
+
+    <form>
+        <div class="form-group">
+            <label>Owner Name</label>
+            <input type="text" class="form-control" placeholder="Owner Name" ng-model="vm.newOwner">
+        </div>
+        <div class="submitPet">
+            <button type="submit" class="btn btn-primary " ng-click="vm.addOwner(vm.newOwner)">Submit</button>
+        </div>
+    </form>
 
     <div>
-        <h2>Owners</h2>
+        <h2 class="owners">Owners</h2>
 
-        <table>
-            <thead>
+        <table class="table table-hover">
+            <thead class="tableHead">
                 <tr>
-                    <th>Name</th>
-                    <th>Number of Pets</th>
-                    <th>Actions</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Number of Pets</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="tableBody">
                 <tr ng-repeat="owner in vm.owners.list">
                     <td>
                         <p ng-show="!editMode" ng-click="edit = true">{{owner.name}}</p>
@@ -23,8 +31,14 @@
                     </td>
                     <td>{{owner.number_of_pets}}</td>
                     <td>
-                        <button ng-click="vm.deleteOwner(owner.id)">Delete</button>
-                        <button ng-show="!editMode" ng-click="editMode = true">Edit</button>
+                        <button ng-click="vm.deleteOwner(owner.id)" class="btn btn-danger">
+                            <i class="material-icons">delete</i>
+                        </button>
+                        <button ng-show="!editMode" ng-click="editMode = true" class="btn btn-warning">
+                            <i class="material-icons">
+                                edit
+                            </i>
+                        </button>
                         <button ng-show="editMode" ng-click="editMode = false; vm.updateOwner(owner)">Save</button>
                     </td>
                 </tr>

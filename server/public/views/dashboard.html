@@ -1,44 +1,60 @@
-<div>
-    <h2>Add Pet</h2>
-
-    <input ng-model="vm.newPet.name" type="text" placeholder="name">
-    <input ng-model="vm.newPet.breed" type="text" placeholder="breed">
-    <input ng-model="vm.newPet.color" type="text" placeholder="color">
-    <select ng-model="vm.newPet.owner_id">
-        <option value="">--Select Owner's Name--</option>
-        <option ng-repeat="owner in vm.owners.list" value="{{owner.id}}">{{owner.name}}</option>
-    </select>
-    <button ng-click="vm.addPet(vm.newPet)">Submit</button>
-
+<div class="container">
     <div>
-        <h2>History</h2>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Owner</th>
-                    <th>Pet's Name</th>
-                    <th>Breed</th>
-                    <th>Color</th>
-                    <th>Check In</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="pet in vm.pets.list">
-                    <td>{{pet.owner_name}}</td>
-                    <td>{{pet.pet_name}}</td>
-                    <td>{{pet.pet_breed}}</td>
-                    <td>{{pet.pet_color}}</td>
-                    <td>{{pet.check_in}}</td>
-                    <td>
-                        <button ng-click="vm.deletePet(pet.pet_id)">Delete</button>
-                        <button ng-show="pet.check_in" ng-click="vm.updatePet(pet)">Check-Out</button>
-                        <button ng-show="!pet.check_in" ng-click="vm.updatePet(pet)">Check-In</button>
-                    </td>
-                </tr> 
-            </tbody>
-        </table>
-    </div>
 
-</div>
+        <h2 class="dashBoardHeader">Add Pet</h2>
+
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Name</label>
+                <input type="text" class="form-control" ng-model="vm.newPet.name" type="text" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Breed</label>
+                <input type="text" class="form-control" ng-model="vm.newPet.breed" type="text" placeholder="Breed">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Color</label>
+                <input type="text" class="form-control" ng-model="vm.newPet.color" type="text" placeholder="Color">
+            </div>
+            <div>
+                <select ng-model="vm.newPet.owner_id">
+                    <option value="">--Select Owner's Name--</option>
+                    <option ng-repeat="owner in vm.owners.list" value="{{owner.id}}">{{owner.name}}</option>
+                </select>
+            </div>
+
+            <div class="submitPet">
+                <button type="submit" class="btn btn-primary " ng-click="vm.addPet(vm.newPet)">Submit</button>
+            </div>
+        </form>
+
+        <div class="history">
+            <h2>History</h2>
+
+            <div>
+                <div class="card" ng-repeat="pet in vm.pets.list" col-sm-4>
+                    <img src="../images/1.png" class="petImage" alt="Avatar">
+                    <div class="container">
+                        <h4>
+                            <b>{{pet.pet_name}} </b>
+                        </h4>
+                        <p>Owner: {{pet.owner_name}}</p>
+                        <p>Breed: {{pet.pet_breed}}</p>
+                        <p>Color: {{pet.pet_color}}</p>
+                        <p>Check In: {{pet.check_in}}</p>
+                        <button ng-click="vm.deletePet(pet.pet_id)" class="btn btn-danger">
+                            <i class="material-icons">delete</i>
+                        </button>
+
+                        <button ng-show="pet.check_in" ng-click="vm.updatePetCheckIn(pet)" class="btn btn-info"><i class="material-icons">
+                                check_box_outline_blank
+                                </i>Check-Out</button>
+                        <button ng-show="!pet.check_in" ng-click="vm.updatePetCheckIn(pet)" class="btn checkIn"><i class="material-icons">
+                                check_box
+                                </i>Check-In</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>

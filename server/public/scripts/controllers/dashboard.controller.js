@@ -13,12 +13,29 @@ app.controller('DashboardController', ['HotelService', function (HotelService) {
       HotelService.addPet(newPet);
     }
 
-    self.updatePet = function (pet) {
-      HotelService.updatePet(pet)
+    self.updatePetCheckIn = function (pet) {
+      HotelService.updatePetCheckIn(pet)
     }
 
     self.deletePet = function (petId) {
-      HotelService.deletePet(petId);
+      swal({
+        title: 'Are you sure you want to delete this pet?',
+        text: 'Once you\'ve deleted, this pet will be gone!',
+        icon: 'warning',
+        buttons: true,
+        dangerMode: true,
+      })
+        .then((willDelete) => {
+          if (willDelete) {
+            HotelService.deletePet(petId);
+            swal('Pet has been deleted', {
+              icon: 'success',
+            });
+          } else {
+            swal('Request has been cancelled!');
+          }
+        })
+      
     }
   
 

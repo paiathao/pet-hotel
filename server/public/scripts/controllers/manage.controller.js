@@ -12,7 +12,24 @@ app.controller('ManageController', ['HotelService', function (HotelService) {
     }      
 
     self.deleteOwner = function (ownerId) {
-        HotelService.deleteOwner(ownerId)
+        swal({
+            title: 'Are you sure you want to delete this owner?',
+            text: 'Once you\'ve deleted, this owner will be gone!',
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true,
+          })
+            .then((willDelete) => {
+              if (willDelete) {
+                HotelService.deleteOwner(ownerId)
+                swal('Owner has been deleted', {
+                  icon: 'success',
+                });
+              } else {
+                swal('Request has been cancelled!');
+              }
+            })
+       
     }
 
     self.updateOwner = function (owner) {

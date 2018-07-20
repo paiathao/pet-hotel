@@ -1,0 +1,78 @@
+body{
+    background-color: #efebe9; 
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+}
+
+.navbar{
+    background: #f8bbd0;
+}
+
+.nav-link{
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* background-color: #ffc1e3; */
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #efebe9;
+    color: black;
+}
+
+.card{
+    text-align: center;
+    width: 300px;
+    height: auto;
+    padding: 10px;
+    margin: 10px;
+    float: left;
+}
+
+.petImage{
+    align-content: center;
+    width: 200px;
+    height: 200px;
+}
+
+.checkIn{
+    background-color: #f8bbd0;
+}
+
+.history, .owners{
+    margin-top: 20px;
+}
+
+.submitPet{
+   margin-top: 15px;
+}
+
+.tableHead{
+    background-color: #DB7093;
+}
+
+.tableBody{
+    background-color: rgba(231, 224, 224, 0.884);
+}
+
+
