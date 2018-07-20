@@ -16,6 +16,10 @@ app.controller('DashboardController', ['HotelService', function (HotelService) {
     self.updatePet = function (pet) {
       HotelService.updatePet(pet)
     }
+
+    self.deletePet = function (petId) {
+      HotelService.deletePet(petId);
+    }
   
 
       

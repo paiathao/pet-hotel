@@ -104,6 +104,21 @@ app.service('HotelService', ['$http', function ($http) {
         })
     }
 
+    self.deletePet = function (petId) {
+        console.log('in DELETE pet', petId)
+        $http({
+            url: `/pets/${petId}`,
+            method: 'DELETE',
+        })
+        .then(function(response){
+            console.log(response);
+            self.getAllPets();
+        })
+        .catch(function(err){
+            console.log(err);
+        })
+      }
+
      self.getAllPets();
 
      self.getAllOwners();

@@ -52,4 +52,15 @@ router.put('/:id', (req, res) => {
         })
 })
 
+router.delete('/:id', (req, res) => {
+    console.log('Got to pet router DELETE id: ', req.params.id)
+    pool.query('DELETE FROM "pets" WHERE "id" = $1;', [req.params.id])
+    .then((result)=> {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('ERROR deleting pets', error);
+        res.sendStatus(500);
+    });
+})
+
 module.exports = router;
