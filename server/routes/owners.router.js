@@ -33,6 +33,21 @@ router.get('/', (req, res) => {
 
 });
 
+router.put('/:id', (req, res) => {
+    console.log('in owner router PUT')
+    console.log('req.body', req.body);
+    pool.query(`UPDATE "owners" SET "name" = $1 
+                WHERE "id" = $2;`, [req.body.name, req.params.id]) 
+        .then((results) => {
+            console.log(results);
+            res.sendStatus(201);
+        })
+        .catch((errorFromPG) => {
+            console.log(errorFromPG)
+            res.sendStatus(500);
+        })
+})
+
 router.delete('/:id', (req, res) => {
     console.log('Got to owner router DELETE id: ', req.params.id)
     pool.query('DELETE FROM "owners" WHERE "id" = $1;', [req.params.id])

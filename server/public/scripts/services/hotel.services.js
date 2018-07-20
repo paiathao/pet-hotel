@@ -38,6 +38,20 @@ app.service('HotelService', ['$http', function ($http) {
         })
      }
 
+     self.updateOwner = function (owner) {
+        console.log('in update owner', owner);
+        $http({
+            url: `/owners/${owner.id}`,
+            method: 'PUT',
+            data: owner
+        }).then(function (res) {
+            console.log(res);
+            self.getAllOwners();
+        }).catch(function (err) {
+            console.log(err);
+        })
+    }
+
      self.deleteOwner = function (ownerId) {
         console.log('Delete owner with id', ownerId);
         $http({

@@ -3,6 +3,8 @@ app.controller('ManageController', ['HotelService', function (HotelService) {
     
     let self = this;
 
+    self.editMode = false;
+
     self.owners = HotelService.owners;
   
     self.addOwner = function (newOwner) {
@@ -11,5 +13,9 @@ app.controller('ManageController', ['HotelService', function (HotelService) {
 
     self.deleteOwner = function (ownerId) {
         HotelService.deleteOwner(ownerId)
+    }
+
+    self.updateOwner = function (owner) {
+        HotelService.updateOwner(owner);
     }
 }]);
