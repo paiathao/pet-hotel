@@ -2,9 +2,10 @@
     <div>
 
 
-        <h2 class="dashBoardHeader">Check In Pet</h2>
+        <button ng-show="!vm.checkInForm" class="btn btn-primary " ng-click="vm.toggleForm()">Check In Pet</button>
 
-        <form>
+        <form ng-show="vm.checkInForm">
+            <h3>Check In Pet</h3>
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" ng-model="vm.newPet.name" type="text" placeholder="Name">
@@ -26,6 +27,7 @@
 
             <div class="submitPet">
                 <button type="submit" class="btn btn-primary " ng-click="vm.addPet(vm.newPet)">Submit</button>
+                <button type="reset" class="btn btn-success" id="reset-btn" ng-click="vm.toggleForm()">Cancel</button>
             </div>
         </form>
 

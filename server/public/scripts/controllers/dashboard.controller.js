@@ -4,10 +4,15 @@ app.controller('DashboardController', ['HotelService', function (HotelService) {
 
   self.pets = HotelService.pets;
   self.owners = HotelService.owners;
+  self.checkInForm = false;
 
   self.getAllOwners = HotelService.getAllOwners;
 
   self.getAllPets = HotelService.getAllPets;
+
+  self.toggleForm = function () {
+    self.checkInForm = !self.checkInForm;
+  }
 
   self.addPet = function (newPet) {
     HotelService.addPet(newPet);
@@ -37,6 +42,8 @@ app.controller('DashboardController', ['HotelService', function (HotelService) {
       })
 
   }
+
+
 
   // self.editPet = function (petToEdit) {
   //   console.log('pet to edit', petToEdit)
