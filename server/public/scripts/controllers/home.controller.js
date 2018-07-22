@@ -3,10 +3,10 @@ app.controller('HomeController', ['HotelService', function (HotelService) {
     
     let self = this;
     self.slides = [
-        {img: '../images/1.png'}, 
-        {img: '../images/kitty.jpg'}, 
-        {img: '../images/lamb.jpg'}, 
-        {img: '../images/puppy.jpg'}, 
+        {img: '../images/pet hotel lobby.jpg'}, 
+        {img: '../images/PetHotel.jpg'}, 
+        {img: '../images/petHotel2.jpg'}, 
+        {img: '../images/autumntrail.jpeg'}, 
     ]
 
 }]);
