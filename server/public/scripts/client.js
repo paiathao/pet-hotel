@@ -1,8 +1,9 @@
-const app = angular.module('PetHotelApp', ['ngRoute']);
+const app = angular.module('PetHotelApp', ['ngRoute', 'ui.carousel']);
 
 app.config(function ($routeProvider) {
     $routeProvider.when('/', {
-        templateUrl: 'views/home.html',
+            templateUrl: 'views/home.html',
+            controller: 'HomeController as vm'
         })
         .when('/dashboard', {
             templateUrl: 'views/dashboard.html',

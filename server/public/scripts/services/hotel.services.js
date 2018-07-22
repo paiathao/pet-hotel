@@ -18,6 +18,7 @@ app.service('HotelService', ['$http', function ($http) {
        .then(function(response){
            console.log('add Owner', response)
            self.getAllOwners();
+           swal('New Owner has been added!')
        })
        .catch (function(err){
            console.log(err)
@@ -47,6 +48,7 @@ app.service('HotelService', ['$http', function ($http) {
         }).then(function (res) {
             console.log(res);
             self.getAllOwners();
+            swal('Owner has been updated!')
         }).catch(function (err) {
             console.log(err);
         })
@@ -60,6 +62,7 @@ app.service('HotelService', ['$http', function ($http) {
         })
         .then(function(response){
             self.getAllOwners();
+            swal('Owner has been deleted!')
         })
         .catch (function(err){
             console.log(err)
@@ -77,6 +80,7 @@ app.service('HotelService', ['$http', function ($http) {
             console.log('add pet', response)
             self.getAllPets();
             self.getAllOwners();
+            swal('New Pet has been added!')
         })
         .catch (function(err){
             console.log(err)
@@ -113,6 +117,7 @@ app.service('HotelService', ['$http', function ($http) {
         }).then(function (res) {
             console.log(res);
             self.getAllPets();
+            swal('Pet status has been updated!')
         }).catch(function (err) {
             console.log(err);
         })
@@ -127,6 +132,7 @@ app.service('HotelService', ['$http', function ($http) {
         .then(function(response){
             console.log(response);
             self.getAllPets();
+            swal('Pet has been deleted!')
         })
         .catch(function(err){
             console.log(err);

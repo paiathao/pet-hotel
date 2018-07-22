@@ -75,3 +75,8 @@ li a:hover:not(.active) {
 }
 
 
+
+.carousel-item {
+    display: block;
+}
+
