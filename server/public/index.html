@@ -24,21 +24,7 @@
 
 <body ng-app="PetHotelApp">
 
-    <nav class="navbar navbar-expand-sm">
-        <a class="navbar-brand" href="#">
-            <img src="./images/1.png" class="logo" />
-        </a>
-        <ul class="navbar-nav">
-            <li style="float:right" class="nav-item">
-                <a class="nav-link" ng-href="#!/dashboard">Dashboard</a>
-            </li>
-            <li style="float:right" class="nav-item">
-                <a class="nav-link" ng-href="#!/manage">Manage Owners</a>
-            </li>
-        </ul>
-    </nav>
-
-
+    <div ng-include src="'views/templates/nav.html'"></div>
 
     <ng-view></ng-view>
 
