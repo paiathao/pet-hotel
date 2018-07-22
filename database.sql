@@ -23,9 +23,9 @@ INSERT INTO "owners" ("name")
 VALUES ('Peter'),('Abigail'),('Allen'),('Cheryl');
 
 INSERT INTO "pets" ("name", "breed", "color", "owner_id")
-VALUES ('Joy', 'kitten', 'grey', 1),
-('June', 'lamb', 'white', 2),
-('Lucky', 'puppy', 'white', 3),
-('Beauty', 'rabbit', 'white', 4);
+VALUES ('Joy', 'Kitten', 'Grey', 1),
+('June', 'Lamb', 'White', 2),
+('Lucky', 'Puppy', 'White', 3),
+('Beauty', 'Rabbit', 'White', 4);
 
 

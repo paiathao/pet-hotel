@@ -45,18 +45,4 @@ app.controller('DashboardController', ['HotelService', function (HotelService) {
 
 
 
-  // self.editPet = function (petToEdit) {
-  //   console.log('pet to edit', petToEdit)
-  //   self.editing = true;
-  //   self.editing_id = petToEdit.pet_id;
-  //   //put the pet info into existing inputs
-  //   self.newPet.name = petToEdit.pet_name;
-  //   self.newPet.breed = petToEdit.pet_breed;
-  //   self.newPet.color = petToEdit.pet_color;
-  //   self.newPet.owner_id = petToEdit.owner_id;
-  //   // console.log(self.newPet)
-  // }
-
-
-
 }]);
