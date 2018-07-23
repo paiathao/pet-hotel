@@ -25,6 +25,10 @@ app.controller('DashboardController', ['HotelService', function (HotelService) {
       HotelService.editPetInfo (pet, self.editing_id); 
       // toggle editing back to false
       self.editing = false;
+      // clear input
+      self.newPet = {};
+      //collapse form
+      self.checkInForm = !self.checkInForm;
   } else {
     HotelService.addPet(pet);
     self.newPet = {};
