@@ -49,7 +49,6 @@ app.service('HotelService', ['$http', function ($http) {
         }).then(function (res) {
             console.log(res);
             self.getAllOwners();
-            swal('Owner has been updated!')
         }).catch(function (err) {
             console.log(err);
             swal('Error updating Owner!!!')
