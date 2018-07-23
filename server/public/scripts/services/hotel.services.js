@@ -121,7 +121,6 @@ app.service('HotelService', ['$http', function ($http) {
         }).then(function (res) {
             console.log(res);
             self.getAllPets();
-            swal('Pet status has been updated!')
         }).catch(function (err) {
             console.log(err);
             swal('Error updating Pet!!!')
