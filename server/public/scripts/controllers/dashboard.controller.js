@@ -5,6 +5,10 @@ app.controller('DashboardController', ['HotelService', function (HotelService) {
   self.pets = HotelService.pets;
   self.owners = HotelService.owners;
   self.checkInForm = false;
+  
+  self.editing = false;
+  self.editing_id = 0;
+
   self.newPet = {};
 
   self.getAllOwners = HotelService.getAllOwners;
@@ -15,10 +19,17 @@ app.controller('DashboardController', ['HotelService', function (HotelService) {
     self.checkInForm = !self.checkInForm;
   }
 
-  self.addPet = function (newPet) {
-    HotelService.addPet(newPet);
+  self.addPet = function (pet) {
+    if(self.editing === true) {
+      // Do the PUT instead of POST
+      HotelService.editPetInfo (pet, self.editing_id); 
+      // toggle editing back to false
+      self.editing = false;
+  } else {
+    HotelService.addPet(pet);
     self.newPet = {};
   }
+};
 
   self.updatePetCheckIn = function (pet) {
     HotelService.updatePetCheckIn(pet)
@@ -42,9 +53,21 @@ app.controller('DashboardController', ['HotelService', function (HotelService) {
           swal('Request has been cancelled!');
         }
       })
-
   }
 
+    self.editPet = function (petToEdit) {
+    console.log('pet to edit', petToEdit)
+    self.checkInForm = !self.checkInForm;
+    self.editing = true;
+    self.editing_id = petToEdit.pet_id;
+    //put the pet info into existing inputs
+    self.newPet.name = petToEdit.pet_name;
+    self.newPet.breed = petToEdit.pet_breed;
+    self.newPet.color = petToEdit.pet_color;
+    self.newPet.owner_id = '' + petToEdit.owner_id;
+    self.newPet.check_in = petToEdit.check_in;
+    // console.log(self.newPet)
+  }
 
 
 }]);

@@ -145,6 +145,27 @@ app.service('HotelService', ['$http', function ($http) {
         })
       }
 
+      self.editPetInfo = function (petToEdit, id) {
+          console.log('in edit pet', petToEdit, id)
+          $http({
+            method: 'PUT',
+            url: `/pets/${id}`,
+            data: {
+                pet_name : petToEdit.name,
+                pet_breed : petToEdit.breed,
+                pet_color : petToEdit.color,
+                owner_id : petToEdit.owner_id,
+                check_in : petToEdit.check_in,
+            }
+        }).then(function(response){
+            console.log(response);
+            self.getAllPets();
+        }).catch(function(err){
+            console.log('Error in edit', err);
+            alert('Cannot edit pet');
+        })
+    }
+
      self.getAllPets();
 
      self.getAllOwners();
