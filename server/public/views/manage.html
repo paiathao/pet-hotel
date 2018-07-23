@@ -39,7 +39,11 @@
                                 edit
                             </i>
                         </button>
-                        <button ng-show="editMode" ng-click="editMode = false; vm.updateOwner(owner)">Save</button>
+                        <button ng-show="editMode" ng-click="editMode = false; vm.updateOwner(owner)" class="btn btn saveButton">
+                                <i class="material-icons">
+                                        save
+                                    </i>    
+                        </button>
                     </td>
                 </tr>
             </tbody>
