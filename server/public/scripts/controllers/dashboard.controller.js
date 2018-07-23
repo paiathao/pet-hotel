@@ -5,6 +5,7 @@ app.controller('DashboardController', ['HotelService', function (HotelService) {
   self.pets = HotelService.pets;
   self.owners = HotelService.owners;
   self.checkInForm = false;
+  self.newPet = {};
 
   self.getAllOwners = HotelService.getAllOwners;
 
@@ -16,6 +17,7 @@ app.controller('DashboardController', ['HotelService', function (HotelService) {
 
   self.addPet = function (newPet) {
     HotelService.addPet(newPet);
+    self.newPet = {};
   }
 
   self.updatePetCheckIn = function (pet) {
